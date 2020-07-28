@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import SignupContainer from './session/signup_container'
 
 export default () => (
-    <div>
+    <div className='greetings'>
         <h1>Dont forget that melkkkkkk!</h1>
-        {/* <Route path="/signup" component={SignupContainer} /> */}
+        <Route path="/" component={SignupContainer} />
     </div>
 );
