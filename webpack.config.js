@@ -4,7 +4,7 @@ module.exports = {
     context: __dirname,
     entry: './frontend/milk.jsx', // entry file
     output: {
-        path: path.resolve(__dirname, ''), // where to output file to
+        path: path.resolve(__dirname, 'app', 'assets', 'javascripts'), // where to output file to
         filename: 'bundle.js' // output file name(we can call it anything)
     },
     resolve: {
