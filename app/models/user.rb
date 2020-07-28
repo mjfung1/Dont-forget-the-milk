@@ -17,7 +17,7 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
-    before_validation: ensure_session_token
+    before_validation :ensure_session_token
 
     attr_reader :password
 
@@ -49,5 +49,5 @@ class User < ApplicationRecord
     def ensure_session_token
         self.session_token ||= self.class.generate_session_token
     end
-    
+
 end
