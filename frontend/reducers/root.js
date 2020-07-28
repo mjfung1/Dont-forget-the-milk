@@ -1,7 +1,7 @@
 import sessionReducer from '/session';
 import { combineReducers } from 'redux';
-import sessionReducer from './session'
+import mysessionReducer from './session'
 
 export default combineReducers({
-    session: sessionReducer
+    session: mysessionReducer
 });
