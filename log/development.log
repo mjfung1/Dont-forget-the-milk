@@ -1,0 +1,202 @@
+Started GET "/" for ::1 at 2020-07-27 17:31:20 -0400
+
+ActiveRecord::NoDatabaseError - FATAL:  database "dontForgetTheMilk_development" does not exist
+:
+
+Started POST "/__better_errors/b077a04c26099a73/variables" for ::1 at 2020-07-27 17:31:21 -0400
+Started GET "/" for ::1 at 2020-07-27 17:37:09 -0400
+
+ActiveRecord::NoDatabaseError - FATAL:  database "dontForgetTheMilk_development" does not exist
+:
+
+Started POST "/__better_errors/6d129c2d5d52edd0/variables" for ::1 at 2020-07-27 17:37:10 -0400
+Started GET "/" for ::1 at 2020-07-27 17:37:12 -0400
+
+ActiveRecord::NoDatabaseError - FATAL:  database "dontForgetTheMilk_development" does not exist
+:
+
+Started POST "/__better_errors/9ffa13678d49d987/variables" for ::1 at 2020-07-27 17:37:12 -0400
+  [1m[35m (340.8ms)[0m  [1m[35mCREATE DATABASE "dontForgetTheMilk_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (104.6ms)[0m  [1m[35mCREATE DATABASE "dontForgetTheMilk_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2020-07-27 17:41:55 -0400
+Processing by StaticPagesController#root as HTML
+Completed 406 Not Acceptable in 122ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - StaticPagesController#root is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/8f81ae0cd4e9e371/variables" for ::1 at 2020-07-27 17:41:55 -0400
+Started GET "/" for ::1 at 2020-07-27 17:41:57 -0400
+Processing by StaticPagesController#root as HTML
+Completed 406 Not Acceptable in 152ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - StaticPagesController#root is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/4a6bdda156b62ffd/variables" for ::1 at 2020-07-27 17:41:57 -0400
+Started POST "/__better_errors/4a6bdda156b62ffd/variables" for ::1 at 2020-07-27 17:42:19 -0400
+Started POST "/__better_errors/4a6bdda156b62ffd/variables" for ::1 at 2020-07-27 17:42:20 -0400
+Started POST "/__better_errors/4a6bdda156b62ffd/variables" for ::1 at 2020-07-27 17:43:45 -0400
+Started POST "/__better_errors/4a6bdda156b62ffd/variables" for ::1 at 2020-07-27 17:43:46 -0400
+Started POST "/__better_errors/4a6bdda156b62ffd/variables" for ::1 at 2020-07-27 17:43:48 -0400
+Started GET "/" for ::1 at 2020-07-27 17:47:57 -0400
+Processing by StaticPagesController#root as HTML
+Completed 406 Not Acceptable in 131ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - StaticPagesController#root is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/f09b56bde54591e5/variables" for ::1 at 2020-07-27 17:47:58 -0400
+Started GET "/" for ::1 at 2020-07-27 17:47:58 -0400
+Processing by StaticPagesController#root as HTML
+Completed 406 Not Acceptable in 132ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - StaticPagesController#root is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/d3f21be0cfbe0e37/variables" for ::1 at 2020-07-27 17:47:59 -0400
+Started GET "/" for ::1 at 2020-07-27 17:47:59 -0400
+Processing by StaticPagesController#root as HTML
+Completed 406 Not Acceptable in 163ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - StaticPagesController#root is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/263c708aa7fcd21a/variables" for ::1 at 2020-07-27 17:47:59 -0400
+Started GET "/" for ::1 at 2020-07-27 17:48:00 -0400
+Processing by StaticPagesController#root as HTML
+Completed 406 Not Acceptable in 289ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - StaticPagesController#root is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/f65575250635c900/variables" for ::1 at 2020-07-27 17:48:00 -0400
+Started GET "/" for ::1 at 2020-07-27 17:57:32 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1572ms (Views: 1567.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 17:57:38 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 17:57:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 17:57:40 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 17:58:01 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 33ms (Views: 28.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 17:58:21 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 60ms (Views: 55.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 18:00:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 58ms (Views: 47.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 18:00:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 44ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 18:03:38 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 60ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 18:04:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 84ms (Views: 74.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 18:04:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 87ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 18:08:03 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 934ms (Views: 927.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-28 09:31:46 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 339ms (Views: 333.1ms | ActiveRecord: 0.0ms)
+
+
