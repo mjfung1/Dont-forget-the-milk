@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+ .nav {
+    background-color: #0063BA;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+
+    
+  }
+
+.myButton {
+	background-color:#0063BA;
+	border-radius:10px;
+	border:1px solid #0063BA;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:10px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #0063BA;
+}
+
+.signUpButton {
+    background-color: #0063BA;
+	border-radius:10px;
+	border:2px solid white;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:10px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #0063BA
+}
