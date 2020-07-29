@@ -1,13 +1,23 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import NavBarContainer from './nav_bar/nav_bar_container';
-import SignupContainer from './session/signup_container'
-import { AuthRoute } from '../util/route_utils'
-import Home from './home/home';
 
-export default () => (
-    <div className='greetings'>
-        <Route path="/" component={NavBarContainer} />
-        <Route path="/signup" component={SignupContainer} />
+import GreetingContainer from './greeting/greeting_container';
+import SignUpFormContainer from './session_form/signup_form_container';
+import LogInFormContainer from './session_form/login_form_container';
+import { AuthRoute } from '../util/route_util';
+
+
+
+const App = () => (
+    <div>
+        <header>
+            <h1>Don't Forget le melk</h1>
+            <GreetingContainer />
+        </header>
+
+        <AuthRoute exact path="/login" component={LogInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </div>
 );
+
+export default App;
