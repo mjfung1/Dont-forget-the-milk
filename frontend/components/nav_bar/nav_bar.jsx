@@ -27,16 +27,40 @@ class Navbar extends React.Component {
             display = (
             <div className='page'>
                 <nav className="nav">
-                    <div>
-                            <Link to="/">
-                                <img src={window.logo} />
-                            </Link>
+                    <div className='nav-buttons'>
+                        
+                        <Link to="/">
+                            <img className='logo' src={window.logo3} />
+                        </Link>
+                            
+                        <ul className='nav-buttons'>
+                            <li>
+                                <Link className="myButton" to="/login">Log in</Link>
+                            </li>
+                            <li>
+                                <Link className="myButton signUpButton" to="/signup">Sign up for free</Link>
+                            </li>
+
+                        </ul>
                     </div>
-                    <div>
-                            <Link className="myButton" to="/login">Log in</Link>
-                            <Link className="myButton signUpButton" to="/signup">Sign up for free</Link>
-                    </div>  
+                    
+                     
                 </nav>
+                <main className='main'>
+                    <div className='slogan'>
+                        <h1>The smart to-do app for busy people.</h1>
+                        <Link className='signUp' to='/signup'>Sign Up Free</Link>
+                    </div>
+                    <div className='pic-change'>
+                        <img src={window.mainCow} />
+                    </div>
+                </main>
+                <footer>
+                    <h1>Footer</h1>
+                    <h1>Footer</h1>
+                    <h1>Footer</h1>
+                    <h1>Footer</h1>
+                </footer>
             </div>
            
             )
@@ -44,7 +68,6 @@ class Navbar extends React.Component {
         return(
             <div>
             {display}
-            {/* {this.foooter()} */}
             </div>
         )
     }
