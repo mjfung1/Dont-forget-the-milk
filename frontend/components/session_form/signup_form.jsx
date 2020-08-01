@@ -55,15 +55,15 @@ class SignupForm extends React.Component {
 
         this.props.errors.forEach(error => {
             if (error === "Email can't be blank") {
-                emailError = <div>Invalid email address</div>
+                return emailError = <div>Invalid email address</div>
             } else if (error === "Password is too short (minimum is 6 characters)"){
-                passwordError = <div>Minimum is 6 characters</div>
+                return passwordError = <div>Minimum is 6 characters</div>
             } else if (error === "Username can't be blank") {
-                usernameError = <div>Minimum is 2 characters</div>
+                return usernameError = <div>Minimum is 2 characters</div>
             } else if (error === "First name can't be blank") {
-                firstnameError = <div>First name is required</div>
+                return firstnameError = <div>First name is required</div>
             } else if (error === "Last name can't be blank") {
-                lastnameError = <div>Last name is required</div>
+                return lastnameError = <div>Last name is required</div>
             }
         })
         return (
