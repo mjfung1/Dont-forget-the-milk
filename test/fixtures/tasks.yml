@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id         :bigint           not null, primary key
+#  title      :string           not null
+#  completed  :boolean          not null
+#  user_id    :integer          not null
+#  list_id    :integer
+#  due_date   :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  completed: false
+
+two:
+  title: MyString
+  completed: false

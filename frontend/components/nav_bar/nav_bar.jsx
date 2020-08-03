@@ -18,6 +18,7 @@ class Navbar extends React.Component {
         let display;
         if(currentUser){
             display = (
+                
             <nav className="userPage">
                 <h2 className="title">Hi, {currentUser.username}!</h2>
                 <button className="button1" onClick={logout}>Log Out</button>
