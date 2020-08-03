@@ -40,6 +40,9 @@ class SignupForm extends React.Component {
             </ul>
         );
     }
+    componentDidMount() {
+        this.props.errors
+    }
 
     componentWillUnmount() {
         this.props.clearSessionErrors();
@@ -76,7 +79,7 @@ class SignupForm extends React.Component {
                         more organized and productive!</h1>
                 </section>
                 <section className='right-side-page'>
-                    <Link className="session-button" to="/signup">Log in</Link>
+                    <Link className="session-button" to="/login">Log in</Link>
                     <form
                         onSubmit={this.handleSubmit}
                         className='session-form'>
