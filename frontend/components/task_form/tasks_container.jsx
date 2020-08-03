@@ -1,6 +1,3 @@
-
-
-
 import { connect } from 'react-redux';
 import React from 'react';
 import { createTask, deleteTask, allTasks, updateTask } from '../../actions/task_actions';
@@ -10,17 +7,16 @@ const msp = (state) => {
     // debugger
     return ({
         
-        tasks: Object.values(state.tasks),
-        formType: 'no_list'
+        tasks: Object.values(state.tasks)
     });
 };
 
 const mdp = (dispatch) => {
     return ({
-        createTask: (task) => dispatch(createTask(task)),
         action: () => dispatch(allTasks()),
-        deleteTask: (id) => dispatch(deleteTask(id)),
-        updateTask: (task) => dispatch(updateTask(task))
+        createTask: (task) => dispatch(createTask(task)),
+        updateTask: (task) => dispatch(updateTask(task)),
+        deleteTask: (id) => dispatch(deleteTask(id))
     })
 }
 
