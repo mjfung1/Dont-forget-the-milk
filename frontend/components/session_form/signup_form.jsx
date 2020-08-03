@@ -50,6 +50,7 @@ class SignupForm extends React.Component {
  
     render() {
         const user = this.state;
+
         let emailError = null;
         let passwordError = null;
         let usernameError = null;
@@ -89,7 +90,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('first_name')}
-                            value={user.first_name}
+                            // value={user.first_name}
                             placeholder="First Name">
                         </input>
                         <h3>{firstnameError}</h3>
@@ -97,7 +98,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('last_name')}
-                            value={user.last_name}
+                            // value={user.last_name}
                             placeholder="Last Name">
                         </input>
                         <h3>{lastnameError}</h3>
@@ -105,7 +106,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('email')}
-                            value={user.email}
+                            // value={user.email}
                             placeholder="Email">
                         </input>
                         <h3>{emailError}</h3>
@@ -113,7 +114,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('username')}
-                            value={user.username}
+                            // value={user.username}
                             placeholder="Username">
                         </input>
                         <h3>{usernameError}</h3>
@@ -121,7 +122,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='password'
                             onChange={this.update('password')}
-                            value={user.password}
+                            // value={user.password}
                             placeholder="Password">
                         </input>
                         <h3>{passwordError}</h3>
