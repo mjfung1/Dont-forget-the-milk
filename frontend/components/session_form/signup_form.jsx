@@ -57,6 +57,8 @@ class SignupForm extends React.Component {
         let firstnameError = null;
         let lastnameError = null;
 
+        debugger
+        console.log(this.props.errors)
         this.props.errors.forEach(error => {
             if (error === "Email can't be blank") {
                 return emailError = <div>Invalid email address</div>
