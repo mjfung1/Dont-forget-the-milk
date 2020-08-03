@@ -57,19 +57,17 @@ class SignupForm extends React.Component {
         let firstnameError = null;
         let lastnameError = null;
 
-        debugger
-        console.log(this.props.errors)
         this.props.errors.forEach(error => {
             if (error === "Email can't be blank") {
-                return emailError = <div>Invalid email address</div>
+                return emailError = 'Invalid email address'
             } else if (error === "Password is too short (minimum is 6 characters)"){
-                return passwordError = <div>Minimum is 6 characters</div>
+                return passwordError = 'Minimum is 6 characters'
             } else if (error === "Username can't be blank") {
-                return usernameError = <div>Minimum is 2 characters</div>
+                return usernameError = 'Minimum is 2 characters'
             } else if (error === "First name can't be blank") {
-                return firstnameError = <div>First name is required</div>
+                return firstnameError = 'First name is required'
             } else if (error === "Last name can't be blank") {
-                return lastnameError = <div>Last name is required</div>
+                return lastnameError = 'Last name is required'
             }
         })
         return (
@@ -92,7 +90,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('first_name')}
-                            // value={user.first_name}
+                            value={user.first_name}
                             placeholder="First Name">
                         </input>
                         <h3>{firstnameError}</h3>
@@ -100,7 +98,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('last_name')}
-                            // value={user.last_name}
+                            value={user.last_name}
                             placeholder="Last Name">
                         </input>
                         <h3>{lastnameError}</h3>
@@ -108,7 +106,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('email')}
-                            // value={user.email}
+                            value={user.email}
                             placeholder="Email">
                         </input>
                         <h3>{emailError}</h3>
@@ -116,7 +114,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='text'
                             onChange={this.update('username')}
-                            // value={user.username}
+                            value={user.username}
                             placeholder="Username">
                         </input>
                         <h3>{usernameError}</h3>
@@ -124,7 +122,7 @@ class SignupForm extends React.Component {
                             className='login-inputs'
                             type='password'
                             onChange={this.update('password')}
-                            // value={user.password}
+                            value={user.password}
                             placeholder="Password">
                         </input>
                         <h3>{passwordError}</h3>
