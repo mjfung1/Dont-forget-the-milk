@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import generateQuote from '../../util/quote_util';
+// import generateQuote from '../../util/quote_util';
 
 
 class LoginForm extends React.Component {
@@ -21,15 +21,15 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(() => this.props.history.push('/tasks'));
     }
 
     handleDemoLogin(e) {
         const demoUser = {
-            username: 'mfung',
-            password: 'hunter12'
+            username: 'jinlin',
+            password: '123456'
         };
-        this.props.processForm(demoUser)
+        this.props.processForm(demoUser).then(() => this.props.history.push('/tasks'));
 
     }
 
@@ -50,34 +50,25 @@ class LoginForm extends React.Component {
         this.props.clearSessionErrors();
     }
 
-    renderQuote() {
-        const quote = generateQuote();
-        return (
-            <div>
-                <p
-                    className='quote-text'>"{quote.text}"
-        </p>
-                <p
-                    className='quote-author'>- {quote.author}
-                </p>
-            </div>
-        );
-    }
+    // renderQuote() {
+    //     const quote = generateQuote();
+    //     return (
+    //         <div>
+    //             <p
+    //                 className='quote-text'>"{quote.text}"
+    //             </p>
+    //             <p
+    //                 className='quote-author'>- {quote.author}
+    //             </p>
+    //         </div>
+    //     );
+    // }
+
 
     render() {
         const user = this.state;
         return (
-            <div className='main'>
-
-                <section className='left-side-page'>
-                    <Link className='clicky' to='/'>
-                        <img src={window.logo3} />
-                    </Link>
-                    <h1 className='left-message'>{this.renderQuote()}</h1>
-                </section>
-
-                <section className='right-side-page'>
-                    <Link className="session-button" to="/signup">Sign up for free</Link>
+   
                     <form
                         onSubmit={this.handleSubmit}
                         className='session-form'>
@@ -110,8 +101,7 @@ class LoginForm extends React.Component {
                             onClick={this.handleDemoLogin} />
                     </form>
                     
-                </section>
-            </div>
+
         );
     }
 

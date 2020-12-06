@@ -1,0 +1,129 @@
+#edit-task-form {
+  right: -43.5%;
+  display: none;
+  z-index: 5;
+  background-color: #e6f2ff;
+  position: absolute;
+  width: 43.5%;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.edit-task-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit-task-form textarea {
+  display: block;
+  margin: 10px 25px 15px 25px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  width: 85%;
+  height: 100px;
+}
+
+.edit-task-form textarea:focus {
+  background-color: #e6f2ff;
+}
+
+.edit-task-form input[type="submit"] {
+  background-color: #3399ff;
+  padding: 8px 5px 8px 5px;
+  position: absolute;
+  right: 8%;
+}
+
+.edit-task-form h1 {
+  // padding: 15px 0;
+  text-align: left;
+  padding: 15px 5px;
+}
+
+.task-notes {
+  width: 88%;
+  border-radius: 0px;
+  box-sizing: border-box;
+  display: block;
+  margin: 10px 25px 15px 25px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+#delete-task-button {
+  position: relative;
+  background-color: darkgray;
+  opacity: 0.5;
+  padding: 8px 5px 8px 5px;
+  font-weight: 550;
+  margin-right: 5%;
+}
+
+.task-Status {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8%;
+}
+
+.task-Status label {
+  padding-left: 5px;
+}
+
+.due-date {
+  display: flex;
+  margin-top: 20px;
+}
+
+.due-date input {
+  margin-left: 10px;
+}
+
+.hidden-list-summary {
+  display: none;
+}
+
+.visible-list-summary ul {
+  display: flex;
+}
+
+.visible-list-summary {
+  right: 0;
+  background-color: #e6f2ff;
+  z-index: 5;
+  height: 100vh;
+  width: 50%;
+  position: relative;
+}
+
+.visible-list-summary label {
+  margin: 25px 25px;
+  padding: 10px 5px;
+  background-color: #b3d9ff;
+  opacity: 0.8;
+  font-weight: 530;
+}
+
+.visible-list-summary ul label li {
+  text-align: center;
+}
+
+.visible-delete-option {
+  right: 0;
+  background-color: #e6f2ff;
+  z-index: 5;
+  height: 88%;
+  width: 50%;
+  position: relative;
+  button {
+    background-color: #3399ff;
+    padding: 10px;
+    font-weight: 600;
+    opacity: 0.9;
+    margin: 100px 135px;
+  }
+}
+
+.hidden-delete-option {
+  display: none;
+}

@@ -4,6 +4,9 @@ $lightblue: #0095ED;
 $purple: #6950A1;
 $green: #44B659;
 
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+
 .page {
   display: flex;
   flex-direction: column;
@@ -176,7 +179,7 @@ input[type=submit]:hover, input.demo:hover {
     background-color: #1c567a;
 }
 
-input {
+.login-inputs {
     width: 400px;
     height: 48px;
     box-sizing: border-box;
@@ -188,17 +191,6 @@ input {
     font-weight: 300;
 }
 
-input {
-    width: 400px;
-    height: 48px;
-    box-sizing: border-box;
-    font-size: 20px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    padding: 10px 12px;
-    font-size: 20px;
-    font-weight: 300;
-  }
 
 input::placeholder {
     color: #9ca4a7;
@@ -208,4 +200,38 @@ input::placeholder {
 .cow-guitar {
   height: 50%;
   width: 50%;
+}
+
+.footer {
+  // font-family: 'Noto Sans', sans-serif;
+  // background-color: $milk-blue;
+  // box-sizing: border-box;
+  // border-bottom: 1px solid rgba(0, 0, 0, .08);
+
+  // > div {
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+  //   height: 95px;
+  //   width: 65vw;
+  //   padding-left: 15px;
+  //   padding-right: 15px;
+  //   padding-bottom: 19px;
+  //   margin-right: auto;
+  //   margin-left: auto;
+  // }
+}
+
+.footer-icons {
+  height: 33px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 40px;
+  text-decoration: none;
+  
+}
+
+.footer-icons a {
+  text-decoration: none;
 }
