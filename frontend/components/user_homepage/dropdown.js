@@ -26,8 +26,9 @@ class GearDropdown extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         const welcome = (
-            <li className='setting-guest-names'><h2>{this.props.user.username}</h2></li>
+            <li className='setting-guest-names'><span className="avatar">{this.props.user.first_name[0]}{this.props.user.last_name[0]}</span><h2>{this.props.user.username}</h2></li>
         )
 
         const logout = (
@@ -36,7 +37,7 @@ class GearDropdown extends React.Component {
 
         return (
             <section>
-                <div className='gear-dropdown-btn' onClick={() => this.changeVisibility()}>
+                <div className='gear-dropdown-btn' onClick={this.changeVisibility}>
                     <i className="fas fa-cog"></i>
                 </div>
 

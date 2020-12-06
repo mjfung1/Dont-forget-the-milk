@@ -84,6 +84,7 @@ class EditTask extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         let title;
         if (this.props.list.title) {
             const taskTitle = this.props.list.title;

@@ -102,3 +102,112 @@
 .search-bar:focus {
   background-color: white;
 }
+
+.avatar {
+  display: inline-block;
+  background-color: #0066cc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.all-tasks {
+  display: block;
+  height: auto;
+}
+
+.task-show {
+  display: flex;
+  width: 89%;
+}
+
+.list-and-task {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.task-default-show {
+  display: flex;
+  width: 100%;
+}
+
+.main-form {
+  width: 50%;
+  background-color: #fff;
+  position: relative;
+  z-index: 5;
+  top: 0%;
+  bottom: 0;
+  left: 0%;
+  border-bottom: 1px dotted;
+  border-top: 1px solid;
+  padding: 2px 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-bottom-color: #e5e5e5;
+  border-top-color: #fff;
+  height: 100vh;
+  overflow: auto;
+}
+
+.main-form h1 {
+  padding: 15px 0;
+  background-color: #fff;
+  text-align: left;
+  position: sticky;
+  top: 0px;
+}
+
+.taskForm {
+  position: sticky;
+  top: 40px;
+  background-color: white;
+}
+
+.task-form input[type="text"] {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  box-sizing: border-box;
+}
+
+.task-form input:focus {
+  background-color: #e6f2ff;
+}
+
+.task-form input[type="submit"] {
+  position: relative;
+  left: 85%;
+  padding: 8px 5px 8px 5px;
+  background-color: #3399ff;
+}
+
+.task-form input[type="checkbox"] {
+  width: auto;
+}
+
+form.task-form {
+  background-color: white;
+  top: 45px;
+  position: sticky;
+}
+
+.list-items ul label {
+  display: block;
+  width: 100%;
+  border-bottom: 1px dotted;
+  border-top: 1px solid;
+  padding: 2px 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-bottom-color: #e5e5e5;
+  border-top-color: #fff;
+}
+
+.list-items ul label span {
+  padding: 5px 5px 5px 10px;
+  font-size: 13px;
+}

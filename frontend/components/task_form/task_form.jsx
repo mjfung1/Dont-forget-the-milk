@@ -50,10 +50,16 @@ class taskForm extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
         this.props.action()
     }
 
+    componentDidUpdate() {
+        // this.props.action()
+    }
+
     selectionAction(id) {
+        
         const selectedIds = Object.assign([], this.state.selectedTaskIds);
         const last = this.props.match.url;
 
@@ -67,6 +73,7 @@ class taskForm extends React.Component {
         }
 
         if (selectedIds.length === 1) {
+            console.log(this.props)
             const taskId = selectedIds[0];
             const path = last + "/" + taskId + "/edit";
             this.props.history.push(path);
@@ -129,7 +136,7 @@ class taskForm extends React.Component {
         if (this.state.selectedTaskIds.length > 1) {
             deleteAllOption = (
                 <button className="deleteAll" onClick={() => this.handleDeleteAll()}>
-                    Delete All Selected Tasks
+                    {this.state.selectedTaskIds.length} tasks selected. Clear selection
                 </button>
             );
         } else {
@@ -140,8 +147,8 @@ class taskForm extends React.Component {
             <section className="task-default-show">  
                 <section className='main-form'>
                     <UserHomepageContainer />
-                    <h2 className="title">Hi, {this.props.currentUser.username}!</h2>  
-                    <button className="button1" onClick={this.handleLogout}>Log Out</button>
+                    {/* <h2 className="title">Hi, {this.props.currentUser.username}!</h2>   */}
+                    {/* <button className="button1" onClick={this.handleLogout}>Log Out</button> */}
                     <h1>Tasks</h1>
                     <form onSubmit={this.handleSubmit()} className="task-form">
                         <input

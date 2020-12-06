@@ -88,12 +88,12 @@
 }
 
 .visible-list-summary {
-  right: 0;
+  right: -10%;
   background-color: #e6f2ff;
   z-index: 5;
   height: 100vh;
   width: 50%;
-  position: relative;
+  position: absolute;
 }
 
 .visible-list-summary label {
@@ -109,12 +109,12 @@
 }
 
 .visible-delete-option {
-  right: 0;
+  right: -10%;
   background-color: #e6f2ff;
   z-index: 5;
-  height: 88%;
+  height: 100vh;
   width: 50%;
-  position: relative;
+  position: absolute;
   button {
     background-color: #3399ff;
     padding: 10px;
