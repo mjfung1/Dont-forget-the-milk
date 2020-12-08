@@ -15,17 +15,17 @@
   width: 100%;
 }
 
-.edit-task-form textarea {
+.edit-task-form input {
   display: block;
-  margin: 10px 25px 15px 25px;
-  border: 1px solid #ccc;
+  margin: 10px 25px 15px 25px; 
+  border: none;
   padding: 5px 10px;
   width: 85%;
   height: 100px;
 }
 
-.edit-task-form textarea:focus {
-  background-color: #e6f2ff;
+.edit-task-form input:focus {
+  border: 3px solid #25dfb6;
 }
 
 .edit-task-form input[type="submit"] {
@@ -61,6 +61,7 @@
 }
 
 .task-Status {
+  list-style: none;
   display: flex;
   justify-content: space-between;
   padding: 0 8%;

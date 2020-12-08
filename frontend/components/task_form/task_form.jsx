@@ -2,7 +2,7 @@ import React from "react";
 // import { Link } from 'react-router-dom';
 import { Redirect } from "react-router-dom";
 import UserHomepageContainer from ".././user_homepage/user_homepage_container";
-
+import ListFormContainer from '../lists_form/list_form_container';
 
 class taskForm extends React.Component {
     constructor(props) {
@@ -33,7 +33,10 @@ class taskForm extends React.Component {
         return e => {
             e.preventDefault();
             const newTask = Object.assign({}, this.state);
-            this.props.createTask(newTask)
+            this.props.createTask(newTask);
+            this.setState({
+                title: ''
+            })
         };
     }
 
@@ -144,25 +147,28 @@ class taskForm extends React.Component {
         }
 
         return (
-            <section className="task-default-show">  
+            <section className="task-default-show"> 
+                <ListFormContainer /> 
                 <section className='main-form'>
-                    <UserHomepageContainer />
+                <UserHomepageContainer />
                     {/* <h2 className="title">Hi, {this.props.currentUser.username}!</h2>   */}
                     {/* <button className="button1" onClick={this.handleLogout}>Log Out</button> */}
-                    <h1>Tasks</h1>
-                    <form onSubmit={this.handleSubmit()} className="task-form">
-                        <input
-                            onChange={this.update("title")}
-                            type="text"
-                            value={this.state.title}
-                            placeholder="Add a Task"
-                        />
-                        {button}
-                    </form>
+                
                     <section className="list-items">
-                        
+                        <h1>Tasks</h1>
+                        <form onSubmit={this.handleSubmit()} className="task-form">
+                            <input
+                                onChange={this.update("title")}
+                                type="text"
+                                value={this.state.title}
+                                placeholder="Add a Task..."
+                            />
+                            {button}
+                        </form>
+                            
                         <ul>{allTasks}</ul>
                     </section>
+                    
                 </section>
 
                 <section

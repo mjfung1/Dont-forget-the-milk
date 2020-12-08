@@ -94,29 +94,37 @@ class EditTask extends React.Component {
         }
 
         return (
-            <section id="edit-task-form" className="edit-task-form">
+            <section id="edit-task-form">
                 <div onClick={() => this.handleClose()} className="edit-close">
                     close &times;
         </div>
                 <div className="edit-task-info">
                     <div className="edit-task-header">
-                        <h1>Details</h1>
-                        <button
+
+                        {/* <button
                             id="delete-task-button"
                             onClick={() => this.handleDelete(this.state.task.id)}
-                        >
+                        > 
                             Delete Task
-            </button>
+                        </button> */}
+                        
                     </div>
 
-                    {title}
+                    {/* {title} */}
 
-                    <form onSubmit={this.handleSubmit()}>
-                        <textarea
-                            type="text"
-                            onChange={this.updateTitle()}
-                            value={this.state.task.body}
-                        />
+                    <form  className="edit-task-form" onSubmit={this.handleSubmit()}>
+                        <div className="due-date">
+                            <h1><i className="fas fa-grip-lines-vertical"></i></h1>
+                            <input
+                                className="edit-input"
+                                type="text"
+                                onChange={this.updateTitle()}
+                                value={this.state.task.title}
+                            />
+                            <h1><i className="far fa-edit"></i></h1>
+                        </div>
+
+
 
                         <h1>Status</h1>
                         <section className="task-Status">
@@ -128,7 +136,7 @@ class EditTask extends React.Component {
                                     name="completed"
                                     checked={this.state.task.completed === true}
                                 />
-                                <label>Complete</label>
+                                <label>Completed</label>
                             </li>
                             <li>
                                 <input
@@ -142,7 +150,7 @@ class EditTask extends React.Component {
                             </li>
                         </section>
 
-                        <div className="due-date">
+                        <div className="due-dates">
                             <h1>Due:</h1>
                             <input
                                 onChange={this.updateDueDate()}

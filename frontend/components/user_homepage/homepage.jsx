@@ -1,5 +1,6 @@
 import React from "react";
 import GearDropdown from "./dropdown";
+import { withRouter } from 'react-router';
 
 class userHomepage extends React.Component {
     constructor(props) {
@@ -44,12 +45,18 @@ class userHomepage extends React.Component {
     }
 
     handleSubmit(search) {
-        this.props.history.push(`/tasks/${search.id}/edit`);
-        this.setState({ results: [] });
-        this.setState({ query: "" });
+        return e => {
+            e.prevetDefault();
+            console.log(search)
+            this.props.history.push(`tasks/${search.id}/edit`);
+            this.setState({ results: [] });
+            this.setState({ query: "" });
+
+        }
     }
 
     render() {
+        console.log(this.props)
         let searchResults;
         if (this.state.results.length === 0 && this.state.query !== "") {
             searchResults = <li>No Results</li>;
@@ -70,7 +77,9 @@ class userHomepage extends React.Component {
                             className="search-bar"
                             onChange={this.handleSearch()}
                             type="text"
-                            placeholder="Search..."
+                            id="search"
+                            name="search"
+                            placeholder=""
                             value={this.state.query}
                         />
                         <ul className="search-results">{searchResults}</ul>
@@ -85,4 +94,4 @@ class userHomepage extends React.Component {
         );
     }
 }
-export default userHomepage;
+export default withRouter(userHomepage);
