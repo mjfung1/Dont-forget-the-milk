@@ -97,60 +97,58 @@ class EditTask extends React.Component {
             <section id="edit-task-form">
                 <div onClick={() => this.handleClose()} className="edit-close">
                     close &times;
-        </div>
-                <div className="edit-task-info">
+                </div>
+                    <div className="edit-task-info">
                     <div className="edit-task-header">
-
-                        {/* <button
-                            id="delete-task-button"
-                            onClick={() => this.handleDelete(this.state.task.id)}
-                        > 
-                            Delete Task
-                        </button> */}
                         
                     </div>
 
-                    {/* {title} */}
-
                     <form  className="edit-task-form" onSubmit={this.handleSubmit()}>
                         <div className="due-date">
-                            <h1><i className="fas fa-grip-lines-vertical"></i></h1>
+                        <h1>Edit</h1>
+                            {/* <h1><i className="fas fa-grip-lines-vertical"></i></h1> */}
                             <input
                                 className="edit-input"
                                 type="text"
                                 onChange={this.updateTitle()}
                                 value={this.state.task.title}
                             />
-                            <h1><i className="far fa-edit"></i></h1>
+                            {/* <h1><i className="far fa-edit"></i></h1> */}
                         </div>
 
 
+                        <div className="due-date">
+                            <h1>Status</h1>
+                            <section className="task-Status">
+                                
+                                <li>
+                                    <label>Incomplete</label>
+                                    <input
+                                        onChange={this.updateStatus()}
+                                        type="radio"
+                                        value="false"
+                                        name="completed"
+                                        checked={this.state.task.completed === false}
+                                    />
+                                    
+                                </li>
+                                <li>
+                                    <label>Completed</label>
+                                    <input
+                                        onChange={this.updateStatus()}
+                                        type="radio"
+                                        value="true"
+                                        name="completed"
+                                        checked={this.state.task.completed === true}
+                                    />
+                                    
+                                </li>
 
-                        <h1>Status</h1>
-                        <section className="task-Status">
-                            <li>
-                                <input
-                                    onChange={this.updateStatus()}
-                                    type="radio"
-                                    value="true"
-                                    name="completed"
-                                    checked={this.state.task.completed === true}
-                                />
-                                <label>Completed</label>
-                            </li>
-                            <li>
-                                <input
-                                    onChange={this.updateStatus()}
-                                    type="radio"
-                                    value="false"
-                                    name="completed"
-                                    checked={this.state.task.completed === false}
-                                />
-                                <label>Incomplete</label>
-                            </li>
-                        </section>
+                            </section>
+                        </div>
+                        
 
-                        <div className="due-dates">
+                        <div className="due-date">
                             <h1>Due:</h1>
                             <input
                                 onChange={this.updateDueDate()}
@@ -161,7 +159,7 @@ class EditTask extends React.Component {
                         </div>
 
 
-                        <input type="submit" value="Update" />
+                        <input className="update-btn" type="submit" value="Update" />
                     </form>
                 </div>
             </section>
