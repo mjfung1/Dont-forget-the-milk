@@ -19,7 +19,9 @@ class taskForm extends React.Component {
         this.selectionAction = this.selectionAction.bind(this);
         this.handleDeleteAll = this.handleDeleteAll.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
-    }
+        this.handleDeleteOne = this.handleDeleteOne.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+;    }
 
 
     update(field) {
@@ -50,6 +52,16 @@ class taskForm extends React.Component {
         this.state.selectedTaskIds.forEach(id => {
             this.props.deleteTask(id).then(this.setState({ selectedTaskIds: [] }));
         });
+    }
+
+    handleDeleteOne(item_id) {
+            // console.log(e)
+            this.props.deleteTask(item_id)
+
+    }
+
+    handleClick() {
+
     }
 
     componentDidMount() {
@@ -97,6 +109,7 @@ class taskForm extends React.Component {
 
         const allTasks = this.props.tasks.map(task => {
             return (
+                <div className="alltasks-container">
                 <label key={task.id} className="all-tasks">
                     <input
                         onClick={() => this.selectionAction(task.id)}
@@ -106,14 +119,19 @@ class taskForm extends React.Component {
                     />
                     <span>{task.title}</span>
                 </label>
+                <button onClick={() => this.handleDeleteOne(task.id)} className="trash-btn">
+                    <i className="fas fa-trash"></i>
+                </button>
+                </div>
             );
         });
 
-        let button;
+        let button = <input classname="add-btn" type="submit" value="Add Task" />;
         if (!this.state.title) {
             button = (
                 <input
                     type="submit"
+                    className="add-button"
                     value="Add Task"
                     style={{ opacity: 0.4 }}
                     disabled
@@ -138,9 +156,14 @@ class taskForm extends React.Component {
 
         if (this.state.selectedTaskIds.length > 1) {
             deleteAllOption = (
-                <button className="deleteAll" onClick={() => this.handleDeleteAll()}>
-                    {this.state.selectedTaskIds.length} tasks selected. Clear selection
-                </button>
+                <div className="delete-many-section">
+                    <span>{this.state.selectedTaskIds.length} tasks selected </span>
+                    <span>
+                        <button className="deleteAll" onClick={() => this.handleDeleteAll()}>
+                            clear selection
+                        </button>
+                    </span>
+                </div>
             );
         } else {
             deleteAllOption = "";
@@ -148,16 +171,17 @@ class taskForm extends React.Component {
 
         return (
             <section className="task-default-show"> 
-                <ListFormContainer /> 
-                <section className='main-form'>
                 <UserHomepageContainer />
-                    {/* <h2 className="title">Hi, {this.props.currentUser.username}!</h2>   */}
-                    {/* <button className="button1" onClick={this.handleLogout}>Log Out</button> */}
-                
+
+                <section className='main-form'>
+                    <ListFormContainer /> 
+
                     <section className="list-items">
-                        <h1>Tasks</h1>
+                        <h1>Incomplete</h1>
+                        <h1>Completed</h1>
                         <form onSubmit={this.handleSubmit()} className="task-form">
                             <input
+                                onClick={this.handleClick}
                                 onChange={this.update("title")}
                                 type="text"
                                 value={this.state.title}
@@ -169,35 +193,37 @@ class taskForm extends React.Component {
                         <ul>{allTasks}</ul>
                     </section>
                     
-                </section>
+                
 
-                <section
-                    className={
-                        this.state.selectedTaskIds.length === 0
-                            ? "visible-list-summary"
-                            : "hidden-list-summary"
-                    }
-                >
-                    <ul>
-                        <label>
-                            <li>{TotalTasks}</li>
-                                Tasks
-                        </label>
-                        <label>
-                            <li>{NumofCompleted}</li>
-                            Completed
-                        </label>
-                    </ul>
-                </section>
+                    <section
+                        className={
+                            this.state.selectedTaskIds.length === 0
+                                ? "visible-list-summary"
+                                : "hidden-list-summary"
+                        }
+                    >
+                        <ul>
+                            <label>
+                                <li>{TotalTasks}</li>
+                                    Tasks
+                            </label>
+                            <label>
+                                <li>{NumofCompleted}</li>
+                                Completed
+                            </label>
+                        </ul>
+                    </section>
 
-                <section
-                    className={
-                        this.state.selectedTaskIds.length > 1
-                            ? "visible-delete-option"
-                            : "hidden-delete-option"
-                    }
-                >
-                    {deleteAllOption}
+                    <section
+                        className={
+                            this.state.selectedTaskIds.length > 1
+                                ? "visible-delete-option"
+                                : "hidden-delete-option"
+                        }
+                    >
+                        {deleteAllOption}
+                    </section>
+
                 </section>
             </section>
         );

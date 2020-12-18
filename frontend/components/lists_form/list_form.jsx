@@ -85,16 +85,22 @@ class ListForm extends React.Component {
 
         return (
             <section className="main-siderbar">
+                <img className='logo' src={window.cowface} />
                 <section>
-                    <h2>T A S K S</h2>
+                    <i className="fas fa-caret-down" />
+                    <i className="fas fa-caret-right" />
+                    <h2>Inbox</h2>
                     <li>
                         <Link to={"/tasks"}>All Tasks</Link>
                     </li>
                 </section>
 
                 <header className="list-titles">
-                    <h2>L I S T S </h2>
-
+                    <div>
+                    <i className="fas fa-caret-down" />
+                    <i className="fas fa-caret-right" />
+                    <h2>Lists</h2>
+                    </div>
                     <button id="list-btn" onClick={() => this.changeVisibility()}>
                         <i className="fas fa-plus" />
                     </button>
@@ -124,8 +130,10 @@ class ListForm extends React.Component {
                         </form>
                     </div>
                 </div>
-
-                <ul className="list-titles">{allLists}</ul>
+                    <div className="all-list">
+                        <ul className="list-titles">{allLists}</ul>
+                        
+                    </div>
             </section>
         );
     }
