@@ -127,18 +127,26 @@ class taskForm extends React.Component {
         });
 
         let button = <input classname="add-btn" type="submit" value="Add Task" />;
+        console.log(this)
+        
         if (!this.state.title) {
             button = (
                 <input
                     type="submit"
                     className="add-button"
                     value="Add Task"
-                    style={{ opacity: 0.4 }}
-                    disabled
+                    style={{ opacity: 0.4, 
+                            display: "none"}}
+                    
                 />
             );
         } else {
-            button = <input type="submit" value="Add Task" />;
+            button = <input 
+                        type="submit" 
+                        value="Add Task" 
+                        style={{  display: "block"
+                                }}
+                        />;
         }
 
         const completed = this.props.tasks;
@@ -177,8 +185,11 @@ class taskForm extends React.Component {
                     <ListFormContainer /> 
 
                     <section className="list-items">
-                        <h1>Incomplete</h1>
-                        <h1>Completed</h1>
+                        <div className="completed-status">
+                            <h1>Incomplete</h1>
+                            <h1>Completed</h1>
+                        </div>
+                        
                         <form onSubmit={this.handleSubmit()} className="task-form">
                             <input
                                 onClick={this.handleClick}

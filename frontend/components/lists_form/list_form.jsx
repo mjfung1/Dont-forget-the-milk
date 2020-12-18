@@ -86,20 +86,23 @@ class ListForm extends React.Component {
         return (
             <section className="main-siderbar">
                 <img className='logo' src={window.cowface} />
-                <section>
-                    <i className="fas fa-caret-down" />
-                    <i className="fas fa-caret-right" />
-                    <h2>Inbox</h2>
+                <section className="tasks-section">
+                    <div className="inbox-arrow">
+                        <i className="fas fa-caret-down" />
+                        {/* <i className="fas fa-caret-right" /> */}
+                        <h4>Inbox</h4>
+                    </div>
                     <li>
-                        <Link to={"/tasks"}>All Tasks</Link>
+                        <Link className="list-all-tasks" to={"/tasks"}>All Tasks</Link>
+                        <i className="fas fa-caret-down" />
                     </li>
                 </section>
 
                 <header className="list-titles">
-                    <div>
-                    <i className="fas fa-caret-down" />
-                    <i className="fas fa-caret-right" />
-                    <h2>Lists</h2>
+                    <div className="inbox-arrow">
+                        <i className="fas fa-caret-down" />
+                        {/* <i className="fas fa-caret-right" /> */}
+                        <h4>Lists</h4>
                     </div>
                     <button id="list-btn" onClick={() => this.changeVisibility()}>
                         <i className="fas fa-plus" />
@@ -130,10 +133,11 @@ class ListForm extends React.Component {
                         </form>
                     </div>
                 </div>
-                    <div className="all-list">
-                        <ul className="list-titles">{allLists}</ul>
-                        
-                    </div>
+                <div className="all-list">
+                    <ul className="list-titles">
+                    {allLists}
+                    </ul>
+                </div>
             </section>
         );
     }
