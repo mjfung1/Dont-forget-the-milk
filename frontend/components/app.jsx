@@ -26,7 +26,7 @@ const App = () => (
                 <Route className="task-show" path="/tasks" component={TaskFormContainer} />
                 {/* <Route path="/lists/:listId/tasks/:taskId/edit" component={EditTaskContainer} /> */}
             </div>
-            <Route className="list-and-task" path="/tasks" component={ListFormContainer} />
+            <Route className="list-and-task" path="/lists/:list.id/tasks" component={ListFormContainer} />
         </Switch>
        
 

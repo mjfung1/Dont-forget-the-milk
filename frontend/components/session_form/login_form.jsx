@@ -26,8 +26,8 @@ class LoginForm extends React.Component {
 
     handleDemoLogin(e) {
         const demoUser = {
-            username: 'jinlin',
-            password: '123456'
+            username: 'guest1',
+            password: 'password1'
         };
         this.props.processForm(demoUser).then(() => this.props.history.push('/tasks'));
 

@@ -47,12 +47,21 @@ class userHomepage extends React.Component {
     handleSubmit(search) {
         return e => {
             e.preventDefault();
-            this.props.history.push(`/tasks/${search.id}/edit`);
-            setTimeout(() => {
+            const last = this.props.match.url;
+            const path = last + "/" + search.id + "/edit";
+            this.props.history.push(path);
+                        setTimeout(() => {
                 document.getElementById("edit-task-form").style.right = "0%";
-            }, 20);            
-            // this.setState({ results: [] });
-            // this.setState({ query: "" });
+            }, 20);
+            // this.props.history.push(`/tasks/${search.id}/edit`)
+            //     .then(() => {
+            //          setTimeout(() => {
+            //     document.getElementById("edit-task-form").style.right = "0";
+            // }, 20);  
+            //     })
+                     
+            this.setState({ results: [] });
+            this.setState({ query: "" });
 
         }
     }
@@ -68,7 +77,7 @@ class userHomepage extends React.Component {
             });
         }
 
-        console.log(this.state)
+        console.log(this.state.results)
         return (
             <header className="user-page-navbar">
                 <div className="hamburger">
@@ -83,9 +92,10 @@ class userHomepage extends React.Component {
                             id="search"
                             name="search"
                             placeholder=""
+                            autoComplete="off"
                             value={this.state.query}
                         />
-                        <ul className="search-results">{searchResults}</ul>
+                        {/* <ul className="search-results">{searchResults}</ul> */}
                     </form>
                 </section>
 

@@ -28,11 +28,14 @@ class GearDropdown extends React.Component {
     render() {
         console.log(this.props)
         const welcome = (
-            <li className='setting-guest-names'><span className="avatar">{this.props.user.first_name[0]}{this.props.user.last_name[0]}</span><h2>{this.props.user.username}</h2></li>
+            <li className='setting-guest-name'>
+                <h4 className="avatars">{this.props.user.first_name} {this.props.user.last_name}</h4>
+                <span>{this.props.user.email}</span>
+            </li>
         )
 
         const logout = (
-            <button onClick={this.handleLogout} className='logout-link'>logout</button>
+            <button onClick={this.handleLogout} className='logout-button'>Sign out</button>
         )
 
         return (

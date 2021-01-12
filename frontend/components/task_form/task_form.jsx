@@ -10,9 +10,9 @@ class taskForm extends React.Component {
 
         this.state = {
             title: "",
-            due_date: "",
+            due_date: `${Date.now()}`,
             completed: "",
-            list_id: "",
+            list_id: 24,
             selectedTaskIds: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -106,6 +106,7 @@ class taskForm extends React.Component {
 
 
     render() {
+             console.log(this.props.lists)
 
         const allTasks = this.props.tasks.map(task => {
             return (
@@ -179,6 +180,7 @@ class taskForm extends React.Component {
 
         return (
             <section className="task-default-show"> 
+               
                 <UserHomepageContainer />
 
                 <section className='main-form'>

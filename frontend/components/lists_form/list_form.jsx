@@ -92,7 +92,7 @@ class ListForm extends React.Component {
                         {/* <i className="fas fa-caret-right" /> */}
                         <h4>Inbox</h4>
                     </div>
-                    <li>
+                    <li className="sidebar-all-tasks">
                         <Link className="list-all-tasks" to={"/tasks"}>All Tasks</Link>
                         <i className="fas fa-caret-down" />
                     </li>
@@ -133,10 +133,12 @@ class ListForm extends React.Component {
                         </form>
                     </div>
                 </div>
-                <div className="all-list">
-                    <ul className="list-titles">
-                    {allLists}
-                    </ul>
+                <div>
+                    <div className="all-list">
+                        <ul className="list-titles">
+                        {allLists}
+                        </ul>
+                    </div>
                 </div>
             </section>
         );

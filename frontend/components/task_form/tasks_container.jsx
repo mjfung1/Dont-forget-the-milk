@@ -4,11 +4,12 @@ import { createTask, deleteTask, allTasks, updateTask } from '../../actions/task
 import taskForm from './task_form';
 import { logout } from '../../actions/session_actions';
 
-const msp = ({ tasks, session, entities: { users } }) => {
+const msp = ({ lists, tasks, session, entities: { users } }) => {
     // debugger
     return ({
         currentUser: users[session.id],
-        tasks: Object.values(tasks)
+        tasks: Object.values(tasks),
+        lists: Object.values(lists)
     });
 };
 
