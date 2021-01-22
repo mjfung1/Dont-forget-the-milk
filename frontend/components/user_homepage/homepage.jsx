@@ -1,6 +1,7 @@
 import React from "react";
 import GearDropdown from "./dropdown";
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class userHomepage extends React.Component {
     constructor(props) {
@@ -69,11 +70,15 @@ class userHomepage extends React.Component {
     render() {
         console.log(this.props)
         let searchResults;
-        if (this.state.results.length === 0 && this.state.query !== "") {
-            searchResults = <li>No Results</li>;
+        if (this.state.results.length === 0) {
+            if (this.state.query !== "") {
+                searchResults = (<li>No Results</li>)
+            } else {
+                searchResults = null;
+            }
         } else {
             searchResults = this.state.results.map((task, idx) => {
-                return <li key={idx}>{task.title}</li>;
+                return <li key={idx} ><Link onClick={this.handleSubmit(task.id)} to={`/tasks/${task.id}/edit`}>{task.title}</Link></li>;
             });
         }
 
@@ -95,7 +100,7 @@ class userHomepage extends React.Component {
                             autoComplete="off"
                             value={this.state.query}
                         />
-                        {/* <ul className="search-results">{searchResults}</ul> */}
+                        <ul className="search-results">{searchResults}</ul>
                     </form>
                 </section>
 

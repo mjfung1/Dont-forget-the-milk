@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EditListDropdown from "./edit_list_dropdown";
+import Footer from "../landing_page/footer";
 
 class ListForm extends React.Component {
     constructor(props) {
@@ -97,11 +98,28 @@ class ListForm extends React.Component {
                         <i className="fas fa-caret-down" />
                     </li>
                 </section>
-
-                <header className="list-titles">
+                {/* <Footer /> */}
+                <ul className="footer-icons">
+                <li>
+                    <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/miguel-fung-5084691b5/">
+                        <i className="devicon-linkedin-plain"></i>LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" rel="noreferrer" href="https://github.com/mjfung1">
+                        <i className="devicon-git-plain"></i>GitHub
+                    </a>    
+                </li>
+                <li>
+                    <a target="_blank" rel="noreferrer" href="https://mjfung1.github.io/">
+                        <i className="fas fa-portrait"></i>Portfolio
+                    </a>
+            
+                </li>
+            </ul>
+                {/* <header className="list-titles">
                     <div className="inbox-arrow">
                         <i className="fas fa-caret-down" />
-                        {/* <i className="fas fa-caret-right" /> */}
                         <h4>Lists</h4>
                     </div>
                     <button id="list-btn" onClick={() => this.changeVisibility()}>
@@ -139,7 +157,7 @@ class ListForm extends React.Component {
                         {allLists}
                         </ul>
                     </div>
-                </div>
+                </div> */}
             </section>
         );
     }

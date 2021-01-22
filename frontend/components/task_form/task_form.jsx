@@ -69,7 +69,7 @@ class taskForm extends React.Component {
         this.props.action()
     }
 
-    componentDidUpdate() {
+    componentWillUpdate() {
         // this.props.action()
     }
 
@@ -109,22 +109,24 @@ class taskForm extends React.Component {
              console.log(this.props.lists)
 
         const allTasks = this.props.tasks.map(task => {
-            return (
-                <div className="alltasks-container">
-                <label key={task.id} className="all-tasks">
-                    <input
-                        onClick={() => this.selectionAction(task.id)}
-                        checked={this.isChecked(task.id)}
-                        type="checkbox"
-                        name="selection"
-                    />
-                    <span>{task.title}</span>
-                </label>
-                <button onClick={() => this.handleDeleteOne(task.id)} className="trash-btn">
-                    <i className="fas fa-trash"></i>
-                </button>
-                </div>
-            );
+            if (task.completed === false) {
+                return (
+                    <div className="alltasks-container">
+                            <label key={task.id} className="all-tasks">
+                            <input
+                                onClick={() => this.selectionAction(task.id)}
+                                checked={this.isChecked(task.id)}
+                                type="checkbox"
+                                name="selection"
+                            />
+                            <span>{task.title}</span>
+                            </label>
+                            <button onClick={() => this.handleDeleteOne(task.id)} className="trash-btn">
+                                <i className="fas fa-trash"></i>
+                            </button>
+                    </div>
+                )
+            }
         });
 
         let button = <input classname="add-btn" type="submit" value="Add Task" />;
