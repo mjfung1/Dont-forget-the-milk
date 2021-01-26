@@ -106,7 +106,7 @@ class taskForm extends React.Component {
 
 
     render() {
-             console.log(this.props.lists)
+        console.log(this.props.lists)
 
         const allTasks = this.props.tasks.map(task => {
             if (task.completed === false) {
