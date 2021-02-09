@@ -3,6 +3,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import UserHomepageContainer from ".././user_homepage/user_homepage_container";
 import ListFormContainer from '../lists_form/list_form_container';
+import AllTasksContainer from './all_tasks_container'
 
 class taskForm extends React.Component {
     constructor(props) {
@@ -16,12 +17,10 @@ class taskForm extends React.Component {
             selectedTaskIds: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.selectionAction = this.selectionAction.bind(this);
         this.handleDeleteAll = this.handleDeleteAll.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
-        this.handleDeleteOne = this.handleDeleteOne.bind(this);
         this.handleClick = this.handleClick.bind(this);
-;    }
+    }
 
 
     update(field) {
@@ -54,81 +53,10 @@ class taskForm extends React.Component {
         });
     }
 
-    handleDeleteOne(item_id) {
-            // console.log(e)
-            this.props.deleteTask(item_id)
-
-    }
-
-    handleClick() {
-
-    }
-
-    componentDidMount() {
-        console.log(this.props)
-        this.props.action()
-    }
-
-    componentWillUpdate() {
-        // this.props.action()
-    }
-
-    selectionAction(id) {
-        
-        const selectedIds = Object.assign([], this.state.selectedTaskIds);
-        const last = this.props.match.url;
-
-        if (selectedIds.includes(id)) {
-            const idx = selectedIds.indexOf(id);
-            selectedIds.splice(idx, 1);
-            this.setState({ selectedTaskIds: selectedIds });
-        } else {
-            selectedIds.push(id);
-            this.setState({ selectedTaskIds: selectedIds });
-        }
-
-        if (selectedIds.length === 1) {
-            console.log(this.props)
-            const taskId = selectedIds[0];
-            const path = last + "/" + taskId + "/edit";
-            this.props.history.push(path);
-            setTimeout(() => {
-                document.getElementById("edit-task-form").style.right = "0%";
-            }, 20);
-        } else {
-            this.props.history.push(last);
-        }
-    }
-
-    isChecked(id) {
-        this.state.selectedTaskIds.includes(id);
-    }
 
 
     render() {
-        console.log(this.props.lists)
-
-        const allTasks = this.props.tasks.map(task => {
-            if (task.completed === false) {
-                return (
-                    <div className="alltasks-container">
-                            <label key={task.id} className="all-tasks">
-                            <input
-                                onClick={() => this.selectionAction(task.id)}
-                                checked={this.isChecked(task.id)}
-                                type="checkbox"
-                                name="selection"
-                            />
-                            <span>{task.title}</span>
-                            </label>
-                            <button onClick={() => this.handleDeleteOne(task.id)} className="trash-btn">
-                                <i className="fas fa-trash"></i>
-                            </button>
-                    </div>
-                )
-            }
-        });
-
+ 
         let button = <input classname="add-btn" type="submit" value="Add Task" />;
         console.log(this)
         
@@ -205,7 +133,9 @@ class taskForm extends React.Component {
                             {button}
                         </form>
                             
-                        <ul>{allTasks}</ul>
+                        <ul>
+                            <AllTasksContainer props={this.props} />
+                        </ul>
                     </section>
                     
                 
