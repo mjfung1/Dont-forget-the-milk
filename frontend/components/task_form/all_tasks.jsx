@@ -55,14 +55,14 @@ class AllTasks extends React.Component {
 
     render() {
         const tasks = this.props.search ? (
-            this.props.search.map(task => {
+            this.props.search.slice().reverse().map(task => {
                 return (
                     <ul key={task.id} className='all-tasks'>
                         <li>
                             <input
                             type="checkbox"
-                            onClick={() => this.handleCheck(task.id)}
-                            value={task.id}
+                            name="selection"
+                            onClick={this.handleCheck(task.id)}
                             />
                             {task.title}
                         </li>
@@ -73,7 +73,7 @@ class AllTasks extends React.Component {
                 )
         })
         ) : (
-            this.props.tasks.map(task => {
+            this.props.tasks.slice().reverse().map(task => {
                 return (
                     <ul key={task.id} className='all-tasks'>
                         <li>
@@ -94,16 +94,19 @@ class AllTasks extends React.Component {
 
         return (
             
-            <div>
-                <form onSubmit={this.handleSubmit()}>
-                    <input
-                        onChange={this.handleChange("title")}
-                        type="text"
-                        value={this.state.title}
-                        placeholder="Add a Task..."
-                    />
-                </form>
-                {tasks}
+            <div className="all-tasks-container">
+                <div className="tasks-container">
+                    <form onSubmit={this.handleSubmit()}>
+                        <input
+                            className="create-task-bar"
+                            onChange={this.handleChange("title")}
+                            type="text"
+                            value={this.state.title}
+                            placeholder="Add a Task..."
+                        />
+                    </form>
+                    {tasks} 
+                </div>
                 <TaskShow task={this.state.selected_task} updateTask={this.props.updateTask} tasks={this.props.tasks}/>
             </div>
         )

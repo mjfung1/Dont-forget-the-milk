@@ -3,6 +3,7 @@ import GearDropdown from "./dropdown";
 import { withRouter } from 'react-router';
 
 import AllTasksContainer from "../task_form/all_tasks_container";
+import ListShowContainer from "../lists_form/list_show_container";
 
 class UserNav extends React.Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class UserNav extends React.Component {
                 <section className="user-page-navbar">
                     <form onSubmit={this.handleSubmit(this.state.searchTerm)}>
                         <input
+                            className="search"
                             name="search"
                             autoComplete="off"
                             onChange={this.handleChange()}
@@ -61,9 +63,15 @@ class UserNav extends React.Component {
                         logout={this.props.logout}
                     />
                 </section>
-                <section>
-                    <AllTasksContainer search={this.state.filtered_tasks}/>
+                <section className="main-container">
+                    <section className="list-bar">
+                        <ListShowContainer />
+                    </section>
+                    <section>
+                        <AllTasksContainer search={this.state.filtered_tasks}/>
+                    </section>
                 </section>
+
             </div>
         );
     }

@@ -6,7 +6,7 @@ class TaskShow extends React.Component {
         super(props);
 
         this.state = {
-            ...this.props
+            title: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -54,7 +54,7 @@ class TaskShow extends React.Component {
                 </label>
             </form>
         ) : (
-            <div>
+            <div className="summary">
                 <div>
                     {tasks.length}
                     task

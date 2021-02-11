@@ -1,0 +1,13 @@
+$milk-blue: #0060bf;
+
+.user-page-navbar {
+    background-color: $milk-blue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search {
+    width: 150%;
+}
