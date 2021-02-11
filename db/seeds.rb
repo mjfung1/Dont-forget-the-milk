@@ -8,15 +8,23 @@
 
 User.destroy_all
 Task.destroy_all
+List.destroy_all
 
-demo11 = User.create!({first_name:'Guest1', last_name:'User1', username:'guest1', email:'guest1@user.com', password:'password1'})
+user = User.create!({first_name:'demo', last_name:'user', username:'demo', email:'demo@user.com', password:'nothunter12'})
 
-Task.create!([
-{title:'Watch Movie', completed:'true', id: 17,  user_id: demo11.id},
-  {title:'Exercise', completed:'false', id: 17, user_id: demo11.id},
-  {title:'Haircut', completed:'false', id: 17, user_id: demo11.id},
-  {title:'Complete Full Stack Project', id: 17, completed:'false', user_id: demo11.id},
-  {title:'Get a job!', completed:'false', id: 17, user_id: demo11.id},
+lists = List.create!([
+  {title:'Personal', user_id: user.id},
+  {title:'Work', user_id: user.id},
+  {title:'Groceries', user_id: user.id}
+])
 
+tasks = Task.create!([
+  {title:'Watch Movie', completed:'true', user_id: user.id, list_id: lists.first.id},
+  {title:'Exercise', completed:'false', user_id: user.id, list_id: lists.first.id},
+  {title:'Get bologna', completed:'false', user_id: user.id, list_id: lists.last.id},
+  {title:'Complete Full Stack Project', completed:'false', user_id: user.id, list_id: lists.first.id},
+  {title:'Get milk', completed:'false', user_id: user.id, list_id: lists.last.id},
+  {title:'Get a job!', completed:'false', user_id: user.id, list_id: lists.first.id},
 
 ])
+

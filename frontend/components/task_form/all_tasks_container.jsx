@@ -1,25 +1,23 @@
 import { connect } from 'react-redux';
-import { deleteTask, allTasks, updateTask } from '../../actions/task_actions';
-import AllTasks from './all_tasks';
+import { withRouter } from 'react-router-dom';
+import { allTasks, deleteTask, createTask, updateTask } from '../../actions/task_actions';
+import AllTasks from './all_tasks'
 
 
-const msp = ({ lists, tasks, session, entities: { users } }) => {
-    // debugger
-    return ({
-        currentUser: users[session.id],
-        tasks: Object.values(tasks),
-        lists: Object.values(lists)
-    });
+const mstp = (state) => {
+    return {
+        tasks: Object.values(state.tasks)
+    };
+}
+
+const mdtp = dispatch => {
+    return {
+        fetchAllTasks: () => dispatch(allTasks()),
+        deleteTask: (id) => dispatch(deleteTask(id)),
+        createTask: (task) => dispatch(createTask(task)),
+        updateTask: (task) => dispatch(updateTask(task))
+    };
 };
 
 
-const mdp = (dispatch) => {
-    return ({
-        logout: () => dispatch(logout()),
-        action: () => dispatch(allTasks()),
-        updateTask: (task) => dispatch(updateTask(task)),
-        deleteTask: (id) => dispatch(deleteTask(id))
-    })
-}
-
-export default connect(msp, mdp)(AllTasks); 
+export default withRouter(connect(mstp, mdtp)(AllTasks));

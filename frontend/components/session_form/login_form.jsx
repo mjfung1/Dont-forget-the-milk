@@ -1,13 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-// import generateQuote from '../../util/quote_util';
-
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { username: '', 
+        this.state = {   username: '', 
                         password: '' };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,11 +21,11 @@ class LoginForm extends React.Component {
     }
 
     handleDemoLogin(e) {
-        const demoUser = {
-            username: 'guest1',
-            password: 'password1'
+        const demo = {
+            username: 'demo',
+            password: 'nothunter12'
         };
-        this.props.processForm(demoUser).then(() => this.props.history.push('/tasks'));
+        this.props.processForm(demo).then(() => this.props.history.push('/tasks'));
 
     }
 
@@ -49,21 +45,6 @@ class LoginForm extends React.Component {
     componentWillUnmount() {
         this.props.clearSessionErrors();
     }
-
-    // renderQuote() {
-    //     const quote = generateQuote();
-    //     return (
-    //         <div>
-    //             <p
-    //                 className='quote-text'>"{quote.text}"
-    //             </p>
-    //             <p
-    //                 className='quote-author'>- {quote.author}
-    //             </p>
-    //         </div>
-    //     );
-    // }
-
 
     render() {
         const user = this.state;

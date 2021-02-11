@@ -1,93 +1,113 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import DeleteMany from './delete_many';
+import TaskShow from './task_show';
 
 class AllTasks extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            title: "",
-            due_date: `${Date.now()}`,
-            completed: "",
-            list_id: 24,
-            selectedTaskIds: []
+            title: '',
+            selected_task: ''
         };
-        this.selectionAction = this.selectionAction.bind(this);
-        this.handleDeleteOne = this.handleDeleteOne.bind(this);
+          
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleCheck = this.handleCheck.bind(this);
 
     }
 
     componentDidMount() {
-        this.props.action()
+        this.props.fetchAllTasks()
     }
 
-    handleDeleteOne(item_id) {
-        this.props.deleteTask(item_id)
-
+    handleDelete(id) {
+        this.props.deleteTask(id)
     }
 
-    selectionAction(id) {
-        console.log(this.props, "this selection id")
-        const selectedIds = Object.assign([], this.state.selectedTaskIds);
-        const last = this.props.props.match.url;
+    handleSubmit(e) {
+        return e => {
+            e.preventDefault();
+            const newTask = Object.assign({}, this.state);
+            this.props.createTask(newTask);
+            this.setState({
+                title: ''
+            })
+        };
+    }
 
-        if (selectedIds.includes(id)) {
-            const idx = selectedIds.indexOf(id);
-            selectedIds.splice(idx, 1);
-            this.setState({ selectedTaskIds: selectedIds });
-        } else {
-            selectedIds.push(id);
-            this.setState({ selectedTaskIds: selectedIds });
-        }
-
-        if (selectedIds.length === 1) {
-            console.log(this.props)
-            const taskId = selectedIds[0];
-            const path = last + "/" + taskId + "/edit";
-            this.props.props.history.push(path);
-            setTimeout(() => {
-                document.getElementById("edit-task-form").style.right = "0%";
-            }, 20);
-        } else {
-            // this.props.props.history.push(last);
-            <DeleteMany />
+    handleChange(field) {
+        return e => {
+            this.setState({ [field]: e.target.value })
         }
     }
 
-
-    isChecked(id) {
-        this.state.selectedTaskIds.includes(id);
+    handleCheck(id) {
+        const { tasks } = this.props
+        return e => {
+            const task = tasks.filter(task => {
+                return task.id === id
+            })
+            this.setState({ selected_task: task})
+        }
     }
+
 
     render() {
-        console.log(this.props, "this the alltasks")
-        const allTasks = this.props.tasks.map(task => {
-        if (task.completed === false) {
-            return (
-                <div className="alltasks-container">
-                    <label key={task.id} className="all-tasks">
-                        <input
-                            onClick={() => this.selectionAction(task.id)}
-                            // checked={() => this.isChecked(task.id)}
+        const tasks = this.props.search ? (
+            this.props.search.map(task => {
+                return (
+                    <ul key={task.id} className='all-tasks'>
+                        <li>
+                            <input
+                            type="checkbox"
+                            onClick={() => this.handleCheck(task.id)}
+                            value={task.id}
+                            />
+                            {task.title}
+                        </li>
+                        <button onClick={() => this.handleDelete(task.id)}>
+                            delete
+                        </button>
+                    </ul>  
+                )
+        })
+        ) : (
+            this.props.tasks.map(task => {
+                return (
+                    <ul key={task.id} className='all-tasks'>
+                        <li>
+                            <input
                             type="checkbox"
                             name="selection"
-                        />
-                        <span>{task.title}</span>
-                        </label>
-                        <button onClick={() => this.handleDeleteOne(task.id)} className="trash-btn">
-                            <i className="fas fa-trash"></i>
+                            onClick={this.handleCheck(task.id)}
+                            />
+                            {task.title}
+                        </li>
+                        <button onClick={() => this.handleDelete(task.id)}>
+                            delete
                         </button>
-                </div>
+                    </ul>  
                 )
-            }
-        });
-        return allTasks;
-    }
-    
+        })
+        )
 
-        
-        
-}
+        return (
+            
+            <div>
+                <form onSubmit={this.handleSubmit()}>
+                    <input
+                        onChange={this.handleChange("title")}
+                        type="text"
+                        value={this.state.title}
+                        placeholder="Add a Task..."
+                    />
+                </form>
+                {tasks}
+                <TaskShow task={this.state.selected_task} updateTask={this.props.updateTask} tasks={this.props.tasks}/>
+            </div>
+        )
+    }
+};
 
 export default AllTasks;

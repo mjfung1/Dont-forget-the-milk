@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-import Homepage from './homepage';
+import UserNav from './user_nav';
 import { logout } from '../../actions/session_actions';
 import { allTasks } from '../../actions/task_actions';
 
 const mapStateToProps = ({ tasks, session, entities: { users } }) => {
-    console.log(tasks)
     return ({
         user: users[session.id],
         tasks: Object.values(tasks)
@@ -18,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(mapStateToProps, mapDispatchToProps)(UserNav);

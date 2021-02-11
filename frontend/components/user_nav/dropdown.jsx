@@ -26,7 +26,6 @@ class GearDropdown extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const welcome = (
             <li className='setting-guest-name'>
                 <h4 className="avatars">{this.props.user.first_name} {this.props.user.last_name}</h4>
