@@ -1,5 +1,7 @@
 import React from 'react';
-import TaskShow from './task_show';
+import TaskShowContainer from './task_show_container';
+
+
 
 class AllTasks extends React.Component {
     constructor(props) {
@@ -42,13 +44,10 @@ class AllTasks extends React.Component {
         }
     }
 
-    handleCheck(id) {
-        const { tasks } = this.props
+    handleCheck(task) {
         return e => {
-            const task = tasks.filter(task => {
-                return task.id === id
-            })
             this.setState({ selected_task: task})
+            }
         }
     }
 
@@ -62,7 +61,7 @@ class AllTasks extends React.Component {
                             <input
                             type="checkbox"
                             name="selection"
-                            onClick={this.handleCheck(task.id)}
+                            onClick={this.handleCheck(task)}
                             />
                             {task.title}
                         </li>
@@ -80,7 +79,7 @@ class AllTasks extends React.Component {
                             <input
                             type="checkbox"
                             name="selection"
-                            onClick={this.handleCheck(task.id)}
+                            onClick={this.handleCheck(task)}
                             />
                             {task.title}
                         </li>
@@ -107,7 +106,8 @@ class AllTasks extends React.Component {
                     </form>
                     {tasks} 
                 </div>
-                <TaskShow task={this.state.selected_task} updateTask={this.props.updateTask} tasks={this.props.tasks}/>
+
+                <TaskShowContainer />
             </div>
         )
     }

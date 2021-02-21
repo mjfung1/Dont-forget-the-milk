@@ -4,15 +4,19 @@ import React from 'react'
 class TaskShow extends React.Component {
     constructor(props) {
         super(props);
-
+        debugger
         this.state = {
-            title: ''
+            task: props.SelectedTask,
+            completed: false,
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    componentDidMount() {
+        debugger
+        // this.setState({title: this.props.task.title})
+    }
     handleChange(field) {
         return e => {
             this.setState({ [field]: e.target.value})
@@ -37,18 +41,18 @@ class TaskShow extends React.Component {
         const num_completed = tasks.filter(task => {
             return task.completed === true;
         })
-    
+        debugger
         const show_task = task ? (
             <form onSubmit={this.handleSubmit()}>
                 <label htmlFor="title">
                     <input type="text" 
-                            value={task[0].title}
+                            value={this.state.task}
                             onChange={this.handleChange('title')}
                     /> 
                 </label>
                 <label htmlFor="completed">
                     <input type="text" 
-                            value={task[0].completed}
+                            value={this.state.completed}
                             onChange={this.handleChange('completed')}
                     /> 
                 </label>
