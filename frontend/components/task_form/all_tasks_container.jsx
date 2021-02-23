@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { allTasks, deleteTask, createTask, updateTask } from '../../actions/task_actions';
+import { fetchAllTasks, 
+        deleteTask, 
+        createTask, 
+        updateTask,
+        addSelectedTask} from '../../actions/task_actions';
 import AllTasks from './all_tasks'
 
 
@@ -12,10 +16,11 @@ const mstp = (state) => {
 
 const mdtp = dispatch => {
     return {
-        fetchAllTasks: () => dispatch(allTasks()),
+        fetchAllTasks: () => dispatch(fetchAllTasks()),
         deleteTask: (id) => dispatch(deleteTask(id)),
         createTask: (task) => dispatch(createTask(task)),
-        updateTask: (task) => dispatch(updateTask(task))
+        updateTask: (task) => dispatch(updateTask(task)),
+        addSelectedTask: (task) => dispatch(addSelectedTask(task))
     };
 };
 

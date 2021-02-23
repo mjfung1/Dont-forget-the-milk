@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {  updateTask } from '../../actions/task_actions';
+import {  updateTask, fetchTask } from '../../actions/task_actions';
 import TaskShow from './task_show';
 
-const mstp = (state) => {
-    // console.log(state.selectedTasks, 'from container')
+const mstp = (state, ownProps) => {
+    console.log(ownProps, 'dawerewrere')
     return {
-        selectedTask: state.selectedTasks,
-        tasks: Object.values(state.tasks)
+        task: state.tasks[ownProps.match.params.taskId]
     };
 };
 
 const mdtp = dispatch => {
     return {
+        fetchTask: (id) => dispatch(fetchTask(id)),
         updateTask: (task) => dispatch(updateTask(task))
     };
 };

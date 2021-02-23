@@ -21,9 +21,16 @@ export const updateTask = (task) => {
     });
 };
 
-export const allTasks = () => {
+export const fetchAllTasks = () => {
     return $.ajax({
         method: 'GET',
         url: '/api/tasks'
     })
 }
+
+export const fetchTask = (id) => {
+  return $.ajax({
+    url: `api/tasks/${id}`,
+    method: 'GET',
+  });
+};

@@ -4,6 +4,12 @@ export const RECEIVE_ALL_TASKS = 'RECEIVE_ALL_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 
+export const RECEIVE_SELECTED_TASK = 'RECEIVE_SELECTED_TASK';
+
+const receiveSelectedTask = (task) => ({
+    type: RECEIVE_SELECTED_TASK,
+    task
+});
 
 export const receiveTask = task => ({
     type: RECEIVE_TASK,
@@ -20,9 +26,19 @@ export const receiveAllTasks = tasks => ({
     tasks
 });
 
-export const allTasks = () => dispatch => (
-    TaskAPIUtil.allTasks()
+export const addSelectedTask = (task) => dispatch => {
+  dispatch(receiveSelectedTask(task));
+};
+
+export const fetchAllTasks = () => dispatch => (
+    TaskAPIUtil.fetchAllTasks()
         .then(task => (dispatch(receiveAllTasks(task))
+    ))
+);
+
+export const fetchTask = (id) => dispatch => (
+    TaskAPIUtil.fetchTask(id)
+        .then(task => (dispatch(receiveTask(task))
     ))
 );
     

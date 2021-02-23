@@ -5,6 +5,8 @@ import LandingPage from './landing_page/landingPage';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LoginSession from './session_form/login_session';
 import UserNavContainer from './user_nav/user_nav_container';
+// import TaskShowContainer from './task_form/task_show_container';
+
 
 
 const App = () => (
@@ -14,6 +16,7 @@ const App = () => (
             <Route exact path='/' component={LandingPage}/>
             <Route path="/login" component={LoginSession} />
             <Route path="/signup" component={SignUpFormContainer} />
+            {/* <Route path="/tasks/:taskId/edit" component={TaskShowContainer} /> */}
             <Route path="/tasks" component={UserNavContainer} />
         </Switch>
        

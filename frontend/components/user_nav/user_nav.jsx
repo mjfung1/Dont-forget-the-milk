@@ -35,6 +35,7 @@ class UserNav extends React.Component {
             const filtered = this.props.tasks.filter(task => {
                     return task.title.toLowerCase().includes(search.toLowerCase())                   
             })
+            console.log(filtered, 'filtereddddddd')
             this.setState({
                 searchTerm: '',
                 filtered_tasks: filtered})

@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskShowContainer from './task_show_container';
+import { Route, Switch } from 'react-router-dom';
 
 
 
@@ -9,7 +10,7 @@ class AllTasks extends React.Component {
 
         this.state = {
             title: '',
-            selected_task: ''
+            selectedTask: []
         };
           
         this.handleDelete = this.handleDelete.bind(this);
@@ -44,15 +45,21 @@ class AllTasks extends React.Component {
         }
     }
 
-    handleCheck(task) {
+    handleCheck(taskId) {
+        console.log(this.props.history)
         return e => {
-            this.setState({ selected_task: task})
-            }
+            
+           
+            this.props.history.push(`/tasks/${taskId}/edit`)
+            this.setState({ selectedTask: taskId})
+   
         }
     }
 
 
     render() {
+        console.log(this.state)
+
         const tasks = this.props.search ? (
             this.props.search.slice().reverse().map(task => {
                 return (
@@ -61,7 +68,7 @@ class AllTasks extends React.Component {
                             <input
                             type="checkbox"
                             name="selection"
-                            onClick={this.handleCheck(task)}
+                            onClick={this.handleCheck(task.id)}
                             />
                             {task.title}
                         </li>
@@ -76,11 +83,11 @@ class AllTasks extends React.Component {
                 return (
                     <ul key={task.id} className='all-tasks'>
                         <li>
-                            <input
-                            type="checkbox"
-                            name="selection"
-                            onClick={this.handleCheck(task)}
-                            />
+                                <input
+                                type="checkbox"
+                                name="selection"
+                                onClick={this.handleCheck(task.id)}
+                                />
                             {task.title}
                         </li>
                         <button onClick={() => this.handleDelete(task.id)}>
@@ -92,7 +99,6 @@ class AllTasks extends React.Component {
         )
 
         return (
-            
             <div className="all-tasks-container">
                 <div className="tasks-container">
                     <form onSubmit={this.handleSubmit()}>
@@ -106,8 +112,9 @@ class AllTasks extends React.Component {
                     </form>
                     {tasks} 
                 </div>
+                
+                <Route exact path="/tasks/:taskId/edit" component={TaskShowContainer} />
 
-                <TaskShowContainer />
             </div>
         )
     }

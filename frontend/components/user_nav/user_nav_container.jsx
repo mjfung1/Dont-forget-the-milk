@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import UserNav from './user_nav';
 import { logout } from '../../actions/session_actions';
-import { allTasks } from '../../actions/task_actions';
+import { fetchAllTasks } from '../../actions/task_actions';
 
 const mapStateToProps = ({ tasks, session, entities: { users } }) => {
     return ({
@@ -13,7 +13,7 @@ const mapStateToProps = ({ tasks, session, entities: { users } }) => {
 const mapDispatchToProps = (dispatch) => {
     return ({
         logout: () => dispatch(logout()),
-        fetchAllTasks: () => dispatch(allTasks())
+        fetchAllTasks: () => dispatch(fetchAllTasks())
     })
 }
 
