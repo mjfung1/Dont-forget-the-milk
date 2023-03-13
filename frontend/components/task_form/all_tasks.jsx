@@ -10,7 +10,8 @@ class AllTasks extends React.Component {
 
         this.state = {
             title: '',
-            selectedTask: []
+            selectedTaskIds: [],
+            checked: false
         };
           
         this.handleDelete = this.handleDelete.bind(this);
@@ -28,12 +29,14 @@ class AllTasks extends React.Component {
         this.props.deleteTask(id)
     }
 
+
     handleSubmit(e) {
         return e => {
             e.preventDefault();
             const newTask = Object.assign({}, this.state);
             this.props.createTask(newTask);
             this.setState({
+                // ...this.state, 
                 title: ''
             })
         };
@@ -46,19 +49,29 @@ class AllTasks extends React.Component {
     }
 
     handleCheck(taskId) {
-        console.log(this.props.history)
+        console.log(this.state)
         return e => {
-            
-           
-            this.props.history.push(`/tasks/${taskId}/edit`)
-            this.setState({ selectedTask: taskId})
+            this.setState({ checked: !this.state.checked });
+            if (this.state.selectedTaskIds.includes(taskId)) {
+                const arr = this.state.selectedTaskIds.filter(id => id !== taskId)
+                this.setState({ selectedTaskIds: arr })
+                } else {
+                this.setState({ selectedTaskIds: [...this.state.selectedTaskIds, taskId] })        
+            }
+
+            if (this.state.checked) {
+                this.props.history.push(`/tasks/${taskId}/edit`)
+            } else {
+                this.setState({ checked: !this.state.checked })
+                this.props.history.push('/tasks')
+            }
    
         }
     }
 
 
     render() {
-        console.log(this.state)
+        console.log(this.state.checked, 'errddff')
 
         const tasks = this.props.search ? (
             this.props.search.slice().reverse().map(task => {
@@ -68,12 +81,13 @@ class AllTasks extends React.Component {
                             <input
                             type="checkbox"
                             name="selection"
-                            onClick={this.handleCheck(task.id)}
+                            checked={this.handleCheck(task.id)}
+                            // onClick={this.handleCheck(task.id)}
                             />
                             {task.title}
                         </li>
                         <button onClick={() => this.handleDelete(task.id)}>
-                            delete
+                            delete more
                         </button>
                     </ul>  
                 )
@@ -86,12 +100,13 @@ class AllTasks extends React.Component {
                                 <input
                                 type="checkbox"
                                 name="selection"
-                                onClick={this.handleCheck(task.id)}
+                                checked={this.handleCheck(task.id)}
+                                // onClick={this.handleCheck(task.id)}
                                 />
                             {task.title}
                         </li>
                         <button onClick={() => this.handleDelete(task.id)}>
-                            delete
+                            delete more
                         </button>
                     </ul>  
                 )

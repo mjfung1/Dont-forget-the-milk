@@ -6,12 +6,12 @@ const Footer = () => {
             <ul className="footer-icons">
                 <li>
                     <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/miguel-fung-5084691b5/">
-                        <i className="devicon-linkedin-plain"></i>LinkedIn
+                        <i className="devicon-linkedin-plain"></i>
                     </a>
                 </li>
                 <li>
                     <a target="_blank" rel="noreferrer" href="https://github.com/mjfung1">
-                        <i className="devicon-git-plain"></i>GitHub
+                        <i className="devicon-github-plain"></i>
                     </a>    
                 </li>
                 <li>

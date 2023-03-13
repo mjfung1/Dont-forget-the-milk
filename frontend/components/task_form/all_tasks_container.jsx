@@ -26,3 +26,4 @@ const mdtp = dispatch => {
 
 
 export default withRouter(connect(mstp, mdtp)(AllTasks));
+// export default connect(mstp, mdtp)(AllTasks);

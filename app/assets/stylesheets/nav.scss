@@ -69,9 +69,10 @@ $green: #44B659;
 
 .nav-buttons {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   height: 33px;
   margin-top: 45px;
+  justify-content: space-between;
 
   .myButton {
     color: #fff;
@@ -203,35 +204,21 @@ input::placeholder {
 }
 
 .footer {
-  // font-family: 'Noto Sans', sans-serif;
-  // background-color: $milk-blue;
-  // box-sizing: border-box;
-  // border-bottom: 1px solid rgba(0, 0, 0, .08);
-
-  // > div {
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
-  //   height: 95px;
-  //   width: 65vw;
-  //   padding-left: 15px;
-  //   padding-right: 15px;
-  //   padding-bottom: 19px;
-  //   margin-right: auto;
-  //   margin-left: auto;
-  // }
+  height: 160px;
 }
 
 .footer-icons {
   height: 33px;
   margin-top: 45px;
   display: flex;
-  justify-content: space-around;
-  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
   text-decoration: none;
-  
 }
 
 .footer-icons a {
   text-decoration: none;
+  color: gray;
+  margin: 0 20px;
 }

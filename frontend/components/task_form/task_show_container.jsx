@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import {  updateTask, fetchTask } from '../../actions/task_actions';
 import TaskShow from './task_show';
 
@@ -17,4 +17,4 @@ const mdtp = dispatch => {
     };
 };
 
-export default withRouter(connect(mstp, mdtp)(TaskShow));
+export default connect(mstp, mdtp)(TaskShow);
